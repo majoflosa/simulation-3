@@ -20,7 +20,7 @@ class App extends Component {
       <Provider store={store}>
         <HashRouter>
           <div className="App">
-            <div className="App-intro">
+            <div className="outer-wrap">
               <Nav />
               {routes}
             </div>

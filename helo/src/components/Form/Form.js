@@ -1,11 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Form extends Component {
+import { connect } from 'react-redux';
+import { setCurrentLocation } from '../../ducks/reducer';
+
+class Form extends Component {
+  componentDidMount() {
+    this.props.setCurrentLocation( this.props.location.pathname );
+  }
+
   render() {
     return (
-      <div>
+      <div className="main-content">
         Form
       </div>
-    )
+    );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    currentLocation: state.currentLocation
+  };
+};
+
+const mapDispatchToProps = {
+  setCurrentLocation
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )(Form);

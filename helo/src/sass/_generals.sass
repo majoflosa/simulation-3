@@ -1,5 +1,130 @@
-.App 
-  text-align: center
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-.main-nav.hidden
-    display: none
+// Outer/Generals
+.App
+  text-align: center
+  font-family: 'Open Sans', sans-serif
+
+.outer-wrap
+  position: relative
+  background: $lightgrey
+  min-height: 100vh
+
+  .btn
+    background: $darkgrey
+    padding: 10px 18px
+    display: inline-block
+    margin: 0 10px
+    color: #ffffff
+    border: none
+
+// Nav
+.main-nav
+  background: #dddddd
+  position: fixed
+  left: 0
+  top: 0
+  height: 100vh
+  width: $navWidth
+  padding: 20px
+  box-sizing: border-box
+  background: linear-gradient(0deg, $orange, $pink)
+
+  .main-avatar
+    background: #ffffff
+    display: block
+    margin: 0 auto
+    width: 100px
+    height: 100px
+    border-radius: 100%
+
+  .nav-links
+    margin: 50px auto
+    a
+      display: block
+      margin: 50px auto
+      width: 50px
+      img
+        max-width: 100%
+        display: block
+        margin: 0 auto
+  
+  .logout-wrap
+    position: absolute
+    left: 47px
+    bottom: 35px
+    width: 50px
+    img
+      display: block
+      max-width: 100%
+
+// auth
+.auth-wrapper
+  background: linear-gradient(60deg,$pink,$orange 40%, $yellow 73%, $lime)
+  min-height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+
+  .inner-content
+    background: linear-gradient(69deg,$pink,$orange 40%, $yellow 73%, $lime)    
+    padding: 40px 0
+    width: 90%
+    max-width: 400px
+    margin: 0 auto
+    box-shadow: 0 5px 8px rgba(0,0,0,0.5)
+    border-radius: 10px
+    color: #ffffff
+
+    .login-header > img
+      width: 100%
+      max-width: 150px
+      animation-name: imgBounce
+      animation-duration: 0.25s
+      animation-timing-function: ease-in-out
+      animation-iteration-count: 1
+      transform-origin: center
+      & + h1
+        font-size: 66px
+        text-shadow: 2px 2px 0 rgba(0,0,0,0.2)
+
+  // .main-title
+    // font-size: 66px
+
+  .field-group
+    margin: 30px auto
+
+  .login-buttons
+    width: 60%
+    margin: 0 auto
+    &::after
+      display: block
+      content: " "
+      clear: both
+    #login
+      float: left
+    #register
+      float: right
+
+// dashboard
+.main-content
+  margin-left: $navWidth
+
+
+@keyframes imgBounce
+  0% { transform: scale(0) }
+  80% { transform: scale(1.15) }
+  100% { transform: scale(1) }
+
+
+// media queries
+@media screen and (max-width: 600px) 
+  .auth-wrapper
+    .inner-content
+      background: transparent
+      box-shadow: none
+      width: auto
+      max-width: none
+
+      .login-buttons
+        width: 100%
